@@ -34,8 +34,14 @@ class MapContainer extends Component {
 		}
 	}
 
+	componentDidMount = () => {
+		getMarkers();
+	}
+
 	toggleSidebarSettings = () => {
-		this.setState({ drawerMode: 'settings', visible: !this.state.visible });
+		if(this.state.drawerMode === 'settings')
+		this.setState({ visible: !this.state.visible, selection: undefined });
+		else this.setState({ drawerMode: 'settings', visible: true, selection: undefined });
 	}
 
 	handleShowMarkerCheckbox = () => {
@@ -43,6 +49,8 @@ class MapContainer extends Component {
 	}
 
 	handleMarkerDrawer = (id, alias) => {
+		console.log('click');
+		console.log(id, this.state.selection)
 		if (this.state.selection && id === this.state.selection.id) this.setState({visible: false, selection: undefined})
 		else this.setState({visible: true, drawerMode: 'marker', selection: {id, alias}});
 	}

@@ -25,6 +25,7 @@ export default function reducer (state = initalState, action) {
 			return {
 				...state,
 				request: { ...state.request, pending: false, error: false, fulfilled: true },
+				markersData: action.payload
 			}
 		case 'TOGGLE_MARKERS':
 			return {
