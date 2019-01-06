@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import MapView from '../presentation-components/Map'
-import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
 import { getMarkers, toggleMarkers } from '../actions/index';
 import './MapContainer.css';
-import { Button, Header, Icon, Image, Menu, Segment, Sidebar, Checkbox } from 'semantic-ui-react'
+import { Button, Icon, Menu, Segment, Sidebar, Checkbox } from 'semantic-ui-react'
 
 const mapStateToProps = (state) => {
 	return {
@@ -35,7 +33,7 @@ class MapContainer extends Component {
 	}
 
 	componentDidMount = () => {
-		getMarkers();
+		this.props.getMarkers();
 	}
 
 	toggleSidebarSettings = () => {
@@ -49,8 +47,6 @@ class MapContainer extends Component {
 	}
 
 	handleMarkerDrawer = (id, alias) => {
-		console.log('click');
-		console.log(id, this.state.selection)
 		if (this.state.selection && id === this.state.selection.id) this.setState({visible: false, selection: undefined})
 		else this.setState({visible: true, drawerMode: 'marker', selection: {id, alias}});
 	}

@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactMapboxGl, { Layer, Feature, Marker } from "react-mapbox-gl";
+import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
 
 const Map = ReactMapboxGl({
 	accessToken: "pk.eyJ1Ijoic21haWxnIiwiYSI6ImNqcWsxZ3IyMDA4ZXQ0MnBmM2g4aTM2YjEifQ.3brAgnVyCkQrY4Mz86CbNg"

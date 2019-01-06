@@ -1,6 +1,5 @@
 
-const BASE_URL = "http://192.168.2.41:9874/api/v1";
-// const BASE_URL = "http://46.101.216.32:4545/api/v1";
+const BASE_URL = "http://localhost:3000/api";
 
 const formatBody = (method, body) => {
 	if (method === 'get') return {};
@@ -41,6 +40,6 @@ const crud = (path) => ({
 });
 
 export const markers = {
-	...crud("/map/markers")
+	...crud("/locations")
 }
 

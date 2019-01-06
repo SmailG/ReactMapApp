@@ -11,7 +11,7 @@ const logger = createLogger({
 	}
 });
 
-const middleware = applyMiddleware(promiseMiddleware(), thunk);
+const middleware = applyMiddleware(promiseMiddleware(), thunk, logger);
 
 export default createStore(
 	reducers,
