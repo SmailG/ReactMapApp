@@ -47,8 +47,15 @@ class MapContainer extends Component {
 	}
 
 	handleMarkerDrawer = (id, alias) => {
-		if (this.state.selection && id === this.state.selection.id) this.setState({visible: false, selection: undefined})
-		else this.setState({visible: true, drawerMode: 'marker', selection: {id, alias}});
+		console.log('click')
+		if (this.state.selection && id === this.state.selection.id) {
+			console.log('IF')
+			this.setState({ visible: false, selection: undefined })
+		} 
+		else {
+			console.log('ELSE')
+			this.setState({ visible: true, drawerMode: 'marker', selection: { id, alias } }, () => console.log(this.state));	
+		} 
 	}
 
 	render() {

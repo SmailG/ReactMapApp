@@ -19,13 +19,12 @@ const MapView = ({ markers, showMarkers, handleMarkerDrawer }) => {
 					height: "100vh",
 					width: "100vw"
 				}}>
-			{showMarkers && 
 			<React.Fragment>
 			<Layer
 				type="circle"
 				id="marker-standard"
 				paint={{
-					"circle-radius": 10,
+					"circle-radius": showMarkers ? 12 : 0,
 					"circle-color": "#ff5200",
 					"circle-stroke-width": 1,
 					"circle-stroke-color": "#fff",
@@ -39,7 +38,7 @@ const MapView = ({ markers, showMarkers, handleMarkerDrawer }) => {
 				type="circle"
 				id="marker-optional"
 				paint={{
-					"circle-radius": 10,
+					"circle-radius": showMarkers ? 12 : 0,
 					"circle-color": "blue",
 					"circle-stroke-width": 1,
 					"circle-stroke-color": "#fff",
@@ -49,7 +48,6 @@ const MapView = ({ markers, showMarkers, handleMarkerDrawer }) => {
 				{optionalMarkers && optionalMarkers.map(m => <Feature onClick={() => handleMarkerDrawer(m.id, m.alias)} key={m.id} coordinates={[m.lat, m.lon]} />)}
 			</Layer>
 			</React.Fragment>
-			}
 			</Map>
 	);
 }
