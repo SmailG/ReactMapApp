@@ -1,12 +1,12 @@
 export function getMarkers(device) {
 	return {
-		type: 'SET_SELECTED_DEVICE',
+		type: 'GET_MARKERS',
 		payload: device
 	}
 }
 export function toggleMarkers(device) {
 	return {
-		type: 'SET_SELECTED_DEVICE',
+		type: 'TOGGLE_MARKERS',
 		payload: device
 	}
 }

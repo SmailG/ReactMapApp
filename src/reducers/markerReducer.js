@@ -1,8 +1,12 @@
 const initalState = {
 	request: { pending: false, error: false, fulfilled: false },
-	markers: [
-		{id: 1, lat: 0, lon: 0, alias: ''}
-	]
+	markersData: [
+		{ id: 1, lat: 18.34244, lon: 43.84864, alias: 'marker1', category: 'standard' },
+		{ id: 2, lat: 18.32244, lon: 43.84164, alias: 'marker2', category: 'standard' },
+		{ id: 3, lat: 18.34244, lon: 43.86864, alias: 'marker3', category: 'optional' },
+		{ id: 4, lat: 18.34244, lon: 43.81864, alias: 'marker4', category: 'optional' },
+	],
+	showMarkers: true
 };
 
 export default function reducer (state = initalState, action) {
@@ -21,6 +25,11 @@ export default function reducer (state = initalState, action) {
 			return {
 				...state,
 				request: { ...state.request, pending: false, error: false, fulfilled: true },
+			}
+		case 'TOGGLE_MARKERS':
+			return {
+				...state,
+				showMarkers: !state.showMarkers
 			}
 		default:
 			return state;
